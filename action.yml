@@ -16,9 +16,11 @@ runs:
   using: "composite"
   steps: 
     - run: echo Hello debug.
+      shell: bash
     - name: Install Deta CLI
       run: |
         curl -fsSL https://get.deta.dev/cli.sh | sh
         ls
+      shell: bash
 
         
