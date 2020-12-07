@@ -18,9 +18,21 @@ runs:
     - run: echo Hello debug.
       shell: bash
     - name: Install Deta CLI
+      shell: bash
       run: |
         curl -fsSL https://get.deta.dev/cli.sh | sh
-        ls
+    - name: Setup Deta Authentication
       shell: bash
+      run: |
+        export DETA_ACCESS_TOKEN=${{ inputs.deta-access-token }}
+    - name: Clone Deta Metadata
+      shell: bash
+      run: |
+        ~/.deta/bin/deta clone --name ${{ inputs.deta-name }} --project ${{ inputs.deta-project }} tmp/
+        cp tmp/.deta .
+    - name: Deploy to Deta 
+      shell: bash
+      run: |
+        ~/.deta/bin/deta deploy
 
         
