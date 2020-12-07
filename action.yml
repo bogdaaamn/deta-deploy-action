@@ -1,0 +1,14 @@
+name: 'Deploy to Deta'
+description: 'Simple GitHub Action to deploy current repo to Deta application'
+
+inputs:
+  deta-access-token:
+    description: 'Deta access token'
+    required: true
+  deta-name:
+    description: 'Deta micro name'
+    required: true
+  deta-access-token:
+    description: 'Deta project'
+    default: 'default'
+    
