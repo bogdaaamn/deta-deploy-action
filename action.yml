@@ -1,5 +1,5 @@
 name: 'Deploy to Deta'
-description: 'Simple GitHub Action to deploy current repo to Deta application'
+description: 'Simple GitHub Action to deploy current repo to a Deta Micro'
 
 inputs:
   deta-access-token:
@@ -8,7 +8,17 @@ inputs:
   deta-name:
     description: 'Deta micro name'
     required: true
-  deta-access-token:
+  deta-project:
     description: 'Deta project'
     default: 'default'
     
+runs:
+  using: "composite"
+  steps: 
+    - run: echo Hello debug.
+    - name: Install Deta CLI
+      run: |
+        curl -fsSL https://get.deta.dev/cli.sh | sh
+        ls
+
+        
