@@ -9,28 +9,33 @@ inputs:
     description: 'Deta micro name'
     required: true
   deta-project:
-    description: 'Deta project'
+    description: 'Deta project name'
     default: 'default'
     
 runs:
   using: "composite"
   steps: 
-    - run: echo Hello debug.
-      shell: bash
+    # Install Deta CLI as per docs
+    # https://docs.deta.sh/docs/cli/install
     - name: Install Deta CLI
       shell: bash
       run: |
         curl -fsSL https://get.deta.dev/cli.sh | sh
+    
+    # Using the access token and existing Deta micro and project,
+    # clone the micro and copy .deta metadata folder to use it in deploy
+    # https://docs.deta.sh/docs/cli/commands#deta-clone
     - name: Clone Deta Metadata
       shell: bash
       run: |
         export DETA_ACCESS_TOKEN=${{ inputs.deta-access-token }}
         ~/.deta/bin/deta clone --name ${{ inputs.deta-name }} --project ${{ inputs.deta-project }} tmp/
         cp -r tmp/.deta .
+        
+    # Using the access token, deploy the project to Deta
+    # https://docs.deta.sh/docs/cli/commands#deta-deploy
     - name: Deploy to Deta 
       shell: bash
       run: |
         export DETA_ACCESS_TOKEN=${{ inputs.deta-access-token }}
         ~/.deta/bin/deta deploy
-
-        
