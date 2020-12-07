@@ -39,3 +39,7 @@ runs:
       run: |
         export DETA_ACCESS_TOKEN=${{ inputs.deta-access-token }}
         ~/.deta/bin/deta deploy
+        
+branding:
+  icon: check-circle
+  color: purple
