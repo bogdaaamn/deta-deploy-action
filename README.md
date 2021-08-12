@@ -39,6 +39,10 @@ Now you can use the key in your project's actions as `${{ secrets.DETA_TOKEN }}`
 
 The name of the Deta project your Micro is part of. Used for `deta clone` command in order to retrieve the latest information about the targeted Micro. Default `"default"`.
 
+### `deta-project-dir`
+
+The name of the directory where the Deta code is located, in cases where the project is not located in the root directory. Default `.` (the root) 
+
 ## Example action workflow
 
 ```yaml
@@ -54,5 +58,6 @@ jobs:
         with:
           deta-access-token: ${{ secrets.DETA_TOKEN }} #Deta access token https://docs.deta.sh/docs/cli/auth
           deta-name: 'micro-name' #Deta Micro name https://docs.deta.sh/docs/cli/commands/#deta-clone
-          deta-project: 'project-name' #Deta project name https://docs.deta.sh/docs/cli/commands/#deta-clone
+          deta-project: 'project-name' #Optional: Deta project name https://docs.deta.sh/docs/cli/commands/#deta-clone
+          deta-project-dir: 'other-dir' #Optional: directory to be deployed on Deta. Default is the root "." 
 ```
