@@ -43,6 +43,7 @@ runs:
       run: |
         export DETA_ACCESS_TOKEN=${{ inputs.deta-access-token }}
         cd ${{ inputs.deta-project-dir }}
+        rm -r tmp/
         ~/.deta/bin/deta deploy
 
 branding:
