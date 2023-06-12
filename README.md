@@ -1,3 +1,7 @@
+> ⚠️  **Deta Cloud** as been sunset since Thursday, June 1st, 2023 at 11:59 PM. Unfortunately this project will not be maintained to support Deta Space instead. Read more about it here https://deta.space/migration/introduction
+> 
+> There is yet one community maintained GitHub Action for Space at [space-deployment-github-action](https://github.com/neobrains/space-deployment-github-action). Otherwise checkout or ask for help on Discord https://go.deta.dev/discord
+
 # Deploy to Deta Micro
 
 <p align="center">
